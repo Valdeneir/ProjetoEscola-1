@@ -12,7 +12,7 @@ namespace ProEscola.Data
 
         }
 
-        public DbSet<AlunoModel> Aluno { get; set; }
+        public DbSet<AlunoModel> Aluno { get; set; } /* Conectando com a Tabela  Aluno*/
 
     }
 }
