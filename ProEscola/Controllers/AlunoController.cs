@@ -1,9 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ProEscola.Models;
+using ProEscola.Repositório;
 
 namespace ProEscola.Controllers
 {
     public class AlunoController : Controller
     {
+
+        private readonly IR_Aluno _aluno;
+
+
+        public AlunoController(IR_Aluno aluno)
+        {
+
+            _aluno = aluno;
+
+        }
+
+
         public IActionResult IndexAluno()
         {
             return View();
@@ -30,8 +44,15 @@ namespace ProEscola.Controllers
             return View();
         }
 
+        [HttpPost]  //metodo de inclusão, recebe e cadastra a informação
+        public IActionResult Adicionar(AlunoModel aluno)
+        {
+            
+            _aluno.Adicionar(aluno);
+            return RedirectToAction("Index");
 
 
+        }
 
 
 
